@@ -1,7 +1,14 @@
-import React from 'react'
+import Product from "./product";
+
 
 export default function Home() {
+  
+  
   return (
-    <div>Home</div>
+    <div>
+      <Product />
+      
+      ss
+    </div>
   )
 }

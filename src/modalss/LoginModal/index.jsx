@@ -18,7 +18,7 @@ export default function LoginModal() {
     formData.append('login',null)
     formData.append('username',username)
     formData.append('password',password)
-    fetch('http://localhost/learn-backend/index.php',{
+    fetch('http://localhost/learn-backend/login.php',{
             method:'POST',
             body:formData
         })
