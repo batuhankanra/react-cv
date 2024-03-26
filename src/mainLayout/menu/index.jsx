@@ -1,21 +1,36 @@
-import { useDispatch, useSelector } from "react-redux"
-import { getCategory } from "../../store/categories"
 import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { getCategoryy } from "../../store/category"
+
+
 
 
 export default function Menu() {
-    const dispatch = useDispatch()
-    const {categories}=useSelector(state=>state.categories)
+  const dispatch = useDispatch()
+  const {category,categoryStatus}=useSelector(state=>state.category)
 
-    useEffect(()=>{
-        dispatch(getCategory())
-    },[dispatch])
+  useEffect(()=>{
+    dispatch(getCategoryy())
+  },[dispatch])
+    
   return (
-    <div className='  pt-6 h-10 flex items-center justify-center gap-x-6  '>
-    {categories.length>0 && categories.map((category,i)=>(
-        <Link to={category} className="hover:bg-gray-600 p-2 rounded-md" key={i}>{category} </Link>
-    ))}
-    </div>
+   <div className='  pt-6 h-10 flex items-center justify-center gap-x-6  border-b border-gray-600 pb-6 '>
+    {categoryStatus==="SUCCESS" && category?.length>0 && category.map(cat=>(
+      
+      cat.category_stat === 1 && (
+       <Link to={cat.category_name} className="hover:bg-gray-600 p-2 rounded-md" key={cat.category_id}>{cat.category_name} </Link>
+      )
+     
+   ))}
+   {categoryStatus==="LOADING" && (
+    <div>Loading ...</div>
+   )}
+   {
+    categoryStatus==="FAIL" && (
+      <div>hata verdi</div>
+    )
+   }
+   </div>
   )
 }
