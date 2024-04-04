@@ -5,3 +5,4 @@
 - redux-toolkit
 - react-icons 
 - @headlessui/react
+- Slick

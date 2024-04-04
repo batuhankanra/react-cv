@@ -2,15 +2,16 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import modal from "./modals";
 import login from "./login";
-import cSlice from "./categories"
 import phpCategory from "./category"
+import phpProduct from "./product"
 
 const store =configureStore({
     reducer:{
         modal,
         login,
-        categories:cSlice,
-        category:phpCategory
+        category:phpCategory,
+        product:phpProduct
+
     }
 
 })
