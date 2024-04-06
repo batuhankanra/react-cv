@@ -5,6 +5,7 @@ import login from "./login";
 import phpCategory from "./category"
 import phpProduct from "./product"
 import getProdoctt from "./getProduct"
+import basket from "./basket";
 
 const store =configureStore({
     reducer:{
@@ -12,7 +13,8 @@ const store =configureStore({
         login,
         category:phpCategory,
         product:phpProduct,
-        getProduct:getProdoctt
+        getProduct:getProdoctt,
+        basket
 
     }
 

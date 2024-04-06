@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { getProductPhp } from '../../store/getProduct'
+import { _addBasket } from '../../store/basket'
 
 export default function Detail() {
     const id=useParams()
@@ -13,26 +14,22 @@ export default function Detail() {
       dispatch(getProductPhp(id.id))
     },[dispatch])
     console.log(getProduct)
+    const product=getProduct[0]
+    
+  
+  
 
     
     
   return (
-    <div>
-        {getProduct.map(pro=>(
-          <div key={pro.p_id} className='flex  justify-between pt-3'>
-            <div>
-              <img src={pro.p_img} className='w-[700px] h-[700px]' />
-            </div>
-            <div className='flex flex-col'>
-              <span className='text-4xl font-bold border-b p-3'>{pro.p_name} </span>
-              <p className='text-gray-500 text-lg p-2'>{pro.p_description} </p>
-              <span>Rating :{pro.p_rating} </span>
-              <span className=''>Price:{pro.p_price}TL </span>
-
-            </div>
-            
-          </div>
-        ))}
+    <div className='flex justify-center' >
+        <div>
+          <img src={product?.p_img} alt="" />
+        </div>
+        <div className=''>
+        
+          <h3>{product?.p_name} </h3>
+        </div>
     </div>
   )
 }
